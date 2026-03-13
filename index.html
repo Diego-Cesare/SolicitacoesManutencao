@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#f7f9ff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#070b12"
+    />
+    <title>Relatório de manutenção</title>
+    <link rel="icon" href="img/ico.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/duotone/style.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  </head>
+
+  <body>
+    <main class="page">
+      <section class="card">
+        <!-- Avisos -->
+        <form id="formulario" novalidate>
+          <div class="loc">
+            <h1>SMECT</h1>
+            <h2>Solicitação para manutenção</h2>
+          </div>
+
+          <label for="unit-select">Unidade</label>
+          <input name="unidade" id="unit-select" />
+
+          <!-- <label for="equipe">Equipe</label>
+          <input
+            id="equipe"
+            name="equipe"
+            type="text"
+            placeholder="Equipe que realizou a manutenção"
+            required
+          /> -->
+
+          <label for="type-select">Tipo</label>
+          <select name="tipo" id="type-select">
+            <option value="" selected></option>
+          </select>
+
+          <label for="descricao">Descrição</label>
+          <textarea
+            name="descricao"
+            id="descricao"
+            placeholder="Descrição detalhada da manutenção"
+          ></textarea>
+
+          <div class="horas" style="display: none">
+            <input
+              id="horaRegistro"
+              name="horaRegistro"
+              type="text"
+              readonly
+              required
+            />
+          </div>
+
+          <div class="actions">
+            <button type="submit" id="btnShare">
+              <i class="ph-duotone ph-share-network"></i>Enviar
+            </button>
+
+            <button type="reset" class="reset">
+              <i class="ph-duotone ph-prohibit"></i>
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <div id="result-modal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div
+        id="modal-content"
+        class="modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
+        <h2 id="modal-title"></h2>
+        <p id="modal-message"></p>
+        <button type="button" id="modal-close-btn">Fechar</button>
+      </div>
+    </div>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
